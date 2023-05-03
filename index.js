@@ -68,8 +68,14 @@ const createBot = (username) => {
         if (window.title.includes('Where would you like to go?')) bot.simpleClick.leftMouse(22)
     })
 
-    bot.on('kicked', (rsn) => createBot(username))
-    bot.on('error', (rsn) => createBot(username))
+    bot.on('kicked', (rsn) => {
+        console.log('kicked bcoz: ' + rsn)
+        createBot(username)
+    })
+    bot.on('error', (rsn) => {
+        console.log('error bcoz: ' + rsn)
+        createBot(username)
+    })
 }
 
 createBot('lovepore09')
