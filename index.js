@@ -34,6 +34,11 @@ const createBot = (username) => {
         }
         else if (msg.includes('check bal')) bot.chat('/bal')
         else if (msg.includes('Please, login with the command:')) bot.chat('/login bruh51')
+        else if (msg.includes('Please type: /captcha ')) {
+            var msgarr = msg.split('captcha ')
+            var captcha = msgarr[1].split(' ').join('')
+            bot.chat('/captcha ' + captcha)
+        }
     }
 
     const moveBack = () => {
