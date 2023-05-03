@@ -79,12 +79,7 @@ const createBot = (username) => {
 }
 
 createBot('lovepore09')
-createBot('mawaffles')
-createBot('Bingidie')
-createBot('AutoRati')
-createBot('Hipited')
-createBot('Vodanfr')
-createBot('Novatuset')
-createBot('Decrisell')
-createBot('Maroccusp')
-createBot('Amysavin')
+setTimeout(() => createBot('mawaffles'), 5000)
+setTimeout(() => createBot('Bingidie'), 10000)
+setTimeout(() => createBot('AutoRati'), 15000)
+setTimeout(() => createBot('Hipited'), 20000)
