@@ -20,13 +20,14 @@ const createBot = (username) => {
     })
 
     bot.on('messagestr', (msg) => {
-        console.log(msg)
+        console.log(bot.username + ': ' + msg)
         if (msg.includes('┃ Friends ┃ Rorzin')) commands(msg)
         else if (msg.includes('Balance: ')) bot.chat('/msg Rorzin ' + msg)
         else if (msg.includes('Please, login with the command:')) bot.chat('/login bruh51')
         else if (msg.includes('Please type: /captcha ')) {
             var msgarr = msg.split('Please type: /captcha ')
             var captcha = msgarr[1].split(' ').join('')
+            console.log(captcha)
             bot.chat('/captcha ' + captcha)
         }
     })
