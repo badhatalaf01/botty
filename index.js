@@ -44,7 +44,6 @@ const createBot = (username) => {
     bot.once('spawn', () => {
         console.log(bot.username + ' is on!!')
         setTimeout(() => {
-            var pass = makeid(5)
             bot.chat('/register bruh51 bruh51')
             setTimeout(() => {
                 bot.setControlState('forward', true)
