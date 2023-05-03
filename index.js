@@ -33,6 +33,7 @@ const createBot = (username) => {
             console.log(mainmsg)
         }
         else if (msg.includes('check bal')) bot.chat('/bal')
+        else if (msg.includes('Please, login with the command:')) bot.chat('/login bruh51')
     }
 
     const moveBack = () => {
