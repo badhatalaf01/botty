@@ -95,11 +95,11 @@ const createBot = (username) => {
     })
 
     bot.on('kicked', (rsn) => {
-        console.log('kicked bcoz: ' + rsn)
+        console.log(bot.username + ' kicked bcoz: ' + rsn)
         createBot(username)
     })
     bot.on('error', (rsn) => {
-        console.log('error bcoz: ' + rsn)
+        console.log(bot.username + ' error bcoz: ' + rsn)
         createBot(username)
     })
 }
