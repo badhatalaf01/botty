@@ -74,18 +74,18 @@ const createBot = (username) => {
             setTimeout(() => {
                 bot.setControlState('forward', true)
             }, 1000)
-        }, 2000)
+        }, 10000)
         setTimeout(() => {
             bot.clearControlStates()
             const compass = bot.inventory.items().find(item => item.name.includes('compass'))
             if (compass) bot.equip(compass, 'hand')
             bot.activateItem()
-        }, 8000)
+        }, 18000)
         setTimeout(() => {
             moveBack()
             bot.chat('/friend add Rorzin')
             bot.chat('/friend add pikax21')
-        }, 10000)
+        }, 20000)
         setInterval(() => bot.chat('/aa'), 60000)
     })
 
