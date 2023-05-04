@@ -104,8 +104,8 @@ const createBot = (username) => {
     })
 }
 
-createBot('paice8')
-setTimeout(() => createBot('Bousiud'), 5000)
-setTimeout(() => createBot('Ofaufaec'), 10000)
-setTimeout(() => createBot('raidimi'), 15000)
-setTimeout(() => createBot('Doumu'), 20000)
+createBot(makeid(8))
+setTimeout(() => createBot(makeid(8)), 5000)
+setTimeout(() => createBot(makeid(8)), 10000)
+setTimeout(() => createBot(makeid(8)), 15000)
+setTimeout(() => createBot(makeid(8)), 20000)
