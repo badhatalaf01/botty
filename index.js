@@ -25,10 +25,30 @@ const createBot = (username) => {
         else if (msg.includes('Balance: ')) bot.chat('/msg Rorzin ' + msg)
         else if (msg.includes('Please, login with the command:')) bot.chat('/login bruh51')
         else if (msg.includes('Please type: /captcha ')) {
+            var captchaArr = ['０', '１', '２', '３', '４', '５', '６', '７', '８', '９']
+
+            var captchaObj = {
+                '０': '0',
+                '１': '1',
+                '２': '2',
+                '３': '3',
+                '４': '4',
+                '５': '5',
+                '６': '6',
+                '７': '7',
+                '８': '8',
+                '９': '9'
+            }
+
             var msgarr = msg.split('Please type: /captcha ')
-            var captcha = msgarr[1].split(' ').join('')
-            console.log(captcha)
-            bot.chat('/captcha ' + captcha)
+            var input = msgarr[1].split(' ').join('')
+            var output = []
+            for (let i in input) {
+                if (captchaArr.includes(input[i])) output.push(captchaObj[input[i]])
+                else output.push(input[i])
+            }
+            console.log(output.join(''))
+            bot.chat('/captcha ' + output.join(''))
         }
     })
 
