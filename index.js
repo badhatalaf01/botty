@@ -71,10 +71,10 @@ const createBot = (username) => {
         console.log(bot.username + ' is on!!')
         setTimeout(() => {
             bot.chat('/register bruh51 bruh51')
-            setTimeout(() => {
-                bot.setControlState('forward', true)
-            }, 1000)
-        }, 10000)
+        }, 5000)
+        setTimeout(() => {
+            bot.setControlState('forward', true)
+        }, 6000)
         setTimeout(() => {
             bot.clearControlStates()
             const compass = bot.inventory.items().find(item => item.name.includes('compass'))
