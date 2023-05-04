@@ -65,19 +65,25 @@ const createBot = (username) => {
 
     const moveBack = () => {
         bot.setControlState('back', true)
-        setTimeout(() => bot.clearControlStates(), 2000)
+        setTimeout(() => bot.clearControlStates(), 2100)
     }
+
+    var hasMoved = false
 
     const checkServer = () => {
         setInterval(() => {
             if (bot.game.serverBrand === 'Waterfall <- Spigot') {
                 bot.setControlState('forward', true)
-                setTimeout(() => {
-                    bot.clearControlStates()
-                }, 5000)
+                setTimeout(() => bot.clearControlStates(), 1000)
                 const compass = bot.inventory.items().find(item => item.name.includes('compass'))
                 if (compass) bot.equip(compass, 'hand')
                 bot.activateItem()
+            }
+            else if (bot.game.serverBrand === 'Waterfall <- Pufferfish') {
+                if(!hasMoved) {
+                    setTimeout(moveBack, 1000)
+                    hasMoved = !hasMoved
+                }
             }
         }, 10000)
     }
