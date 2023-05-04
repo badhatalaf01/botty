@@ -24,6 +24,7 @@ const createBot = (username) => {
         if (msg.includes('┃ Friends ┃ Rorzin')) commands(msg)
         else if (msg.includes('Balance: ')) bot.chat('/msg Rorzin ' + msg)
         else if (msg.includes('Please, login with the command:')) bot.chat('/login bruh51')
+        else if (msg.includes('/register (password) (ConfirmPassword)')) bot.chat('/register bruh51 bruh51')
         else if (msg.includes('Please type: /captcha ')) {
             var captchaArr = ['０', '１', '２', '３', '４', '５', '６', '７', '８', '９']
 
@@ -67,26 +68,29 @@ const createBot = (username) => {
         setTimeout(() => bot.clearControlStates(), 2000)
     }
 
+    const checkServer = () => {
+        setInterval(() => {
+            if (bot.game.serverBrand === 'Waterfall <- Spigot') {
+                bot.setControlState('forward', true)
+                setTimeout(() => {
+                    bot.clearControlStates()
+                }, 5000)
+                const compass = bot.inventory.items().find(item => item.name.includes('compass'))
+                if (compass) bot.equip(compass, 'hand')
+                bot.activateItem()
+            }
+        }, 10000)
+    }
+
     bot.once('spawn', () => {
         console.log(bot.username + ' is on!!')
-        setTimeout(() => {
-            bot.chat('/register bruh51 bruh51')
-        }, 5000)
-        setTimeout(() => {
-            bot.setControlState('forward', true)
-        }, 6000)
-        setTimeout(() => {
-            bot.clearControlStates()
-            const compass = bot.inventory.items().find(item => item.name.includes('compass'))
-            if (compass) bot.equip(compass, 'hand')
-            bot.activateItem()
-        }, 18000)
         setTimeout(() => {
             moveBack()
             bot.chat('/friend add Rorzin')
             bot.chat('/friend add pikax21')
-        }, 20000)
+        }, 30000)
         setInterval(() => bot.chat('/aa'), 60000)
+        checkServer()
     })
 
     bot.on('windowOpen', (window) => {
@@ -95,17 +99,17 @@ const createBot = (username) => {
     })
 
     bot.on('kicked', (rsn) => {
-        console.log(bot.username + ' kicked bcoz: ' + rsn)
+        console.log('kicked bcoz: ' + rsn)
         createBot(username)
     })
     bot.on('error', (rsn) => {
-        console.log(bot.username + ' error bcoz: ' + rsn)
+        console.log('error bcoz: ' + rsn)
         createBot(username)
     })
 }
 
-createBot(makeid(8))
-setTimeout(() => createBot(makeid(8)), 5000)
-setTimeout(() => createBot(makeid(8)), 10000)
-setTimeout(() => createBot(makeid(8)), 15000)
-setTimeout(() => createBot(makeid(8)), 20000)
+createBot(makeid(10))
+setTimeout(() => createBot(makeid(10)), 5000)
+setTimeout(() => createBot(makeid(10)), 10000)
+setTimeout(() => createBot(makeid(10)), 15000)
+setTimeout(() => createBot(makeid(10)), 20000)
